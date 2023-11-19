@@ -14,9 +14,10 @@ This pretends to be a debian 12 server. I would host this on some sort of port f
 - copy them onto the pico
 - plug the pico into your server
 - set a cronjob to run `minicom -D /dev/ttyACM0` (minicom must be installed, along with user in dialout group)
-- 
-ex crontab:
-```shell 
+  
+example crontab:
+```shell
+# this connects to the pico shell on each reboot
 @reboot minicom -D /dev/ttyACM0
 ```
 - wait for the light on the pico to turn on and stay on, as this means the 'troll' is running
