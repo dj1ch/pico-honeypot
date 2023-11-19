@@ -10,7 +10,7 @@ This pretends to be a debian 12 server. I would host this on some sort of port f
 - another pc to copy the files onto the pico
 
 ### Install guide
-- download the code.py from the [releases tab](/releases)
+- download the [code](code.py)
 - copy them onto the pico
 - plug the pico into your server
 - set a cronjob to run `minicom -D /dev/ttyACM0` (minicom must be installed, along with user in dialout group)
