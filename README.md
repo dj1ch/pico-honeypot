@@ -1,4 +1,4 @@
-# fake-pico-server
+# Pico Honeypot
 ## a raspberry pi pico honeypot, that pretends to be a linux server.
 
 ### Intro
