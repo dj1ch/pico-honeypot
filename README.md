@@ -14,7 +14,8 @@ This pretends to be a debian 12 server. I would host this on some sort of port f
 - copy them onto the pico
 - plug the pico into your server
 - set a cronjob to run `minicom -D /dev/ttyACM0` (minicom must be installed, along with user in dialout group)
-ex:
+- 
+ex crontab:
 ```shell 
 @reboot minicom -D /dev/ttyACM0
 ```
