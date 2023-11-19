@@ -22,23 +22,22 @@ def server_startup():
 
     current_time = time.monotonic()
     login_time = f"\nLast login: {current_time}"
-
     print(login_time)
     while True:
         command = input('pi@raspberrypi:~ $ ')
         print(f"bash: {command}: command not found")
-    time.sleep(10) # adjust this time
-    return login_time
+        time.sleep(5)  # adjust this time
+        break
 
 def count_numbers(starting_number):
     current_number = starting_number
-    print("You should leave now!") # you can set the message the attacker sees before this starts
-    time.sleep(2) # delay before counting
+    print("You should leave now!")  # you can set the message the attacker sees before this starts
+    time.sleep(2)  # delay before the counting
     while True:
         led.value = True
         print(current_number)
         current_number += 1
-        time.sleep(0.0000000000000000000000001) # keep in mind this will go really fast
+        time.sleep(0.0000000000000000000000001)  # keep in mind this will go really fast
 
 if __name__ == "__main__":
     try:
