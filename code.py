@@ -31,7 +31,7 @@ def server_startup():
 
 def count_numbers(starting_number):
     current_number = starting_number
-    print("You should leave now!")  # you can set the message the attacker sees before this starts
+    print("\nYou should leave now!")  # you can set the message the attacker sees before this starts
     time.sleep(2)  # delay before the counting
     while True:
         led.value = True
