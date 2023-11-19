@@ -10,6 +10,7 @@ This pretends to be a debian 12 server. I would host this on some sort of port f
 - another pc to copy the files onto the pico
 
 ### Install guide
+For safety, have this in a container of some sort. 
 - download the [code](code.py)
 - copy it onto the pico
 - plug the pico into your server
