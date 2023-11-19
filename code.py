@@ -34,12 +34,13 @@ def count_numbers(starting_number):
     print("\nYou should leave now!")  # you can set the message the attacker sees before this starts
     time.sleep(2)  # delay before the counting
     while True:
-        led.value = True
-        print(current_number)
-        current_number += 1
-        time.sleep(0.0000000000000000000000001)  # keep in mind this will go really fast
-    except KeyboardInterrupt:
-        pass  
+        try:
+            led.value = True
+            print(current_number)
+            current_number += 1
+            time.sleep(0.0000000000000000000000001)  # keep in mind this will go really fast
+        except KeyboardInterrupt:
+            pass
 
 if __name__ == "__main__":
     try:
