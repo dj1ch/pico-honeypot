@@ -38,6 +38,8 @@ def count_numbers(starting_number):
         print(current_number)
         current_number += 1
         time.sleep(0.0000000000000000000000001)  # keep in mind this will go really fast
+    except KeyboardInterrupt:
+        pass  
 
 if __name__ == "__main__":
     try:
