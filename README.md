@@ -2,12 +2,13 @@
 ## a raspberry pi pico honeypot, that pretends to be a linux server.
 
 ### Intro
-This pretends to be a debian 12 server. I would host this on some sort of port for your server, but as soon as attackers log in they will be put into a serial shell(hosted on your own server), which is on the raspberry pi pico. It will troll them by saying "command not found" as they attempt to do things on it. After a couple seconds, the pico will start counting, really fast. This might confuse the attacker. If you want to, you can mess with the python to make it a server using the pico w, although I use the regular pico. 
+This pretends to be a debian 12 server. I would host this on some sort of port for your server, but as soon as attackers log in they will be put into a serial shell(hosted on your own server), which is on the raspberry pi pico. It will troll them by saying "command not found" as they attempt to do things on it. After a couple seconds, the pico will start counting, really fast. This might confuse the attacker. Along with that, they will be trapped in this shell, unless they deliberatly get out of the serial shell. However, this is in a container and everything can be deleted by the host system. If you want to, you can mess with the python to make it a server using the pico w, although I use the regular pico. 
 
 ### What you need
 - a raspberry pi pico
-- circuitpython firmware
+- circuitpython firmware(latest version)
 - another pc to copy the files onto the pico
+- an IDE if you want to test new changes
 
 ### Install guide
 For safety, have this in a container of some sort. 
