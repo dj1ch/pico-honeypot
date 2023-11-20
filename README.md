@@ -13,7 +13,14 @@ This pretends to be a debian 12 server. I would host this on some sort of port f
 For safety, have this in a container of some sort. 
 - download the [code](code.py)
 - copy it onto the pico
-- plug the pico into your server
+- plug the pico into your server/container
+- you may need to give the container permissions to access the `/dev` directory, or perhaps the name of the usb device. most of the time the raspberry pi pico is referred to as `ttyACM0` in the `/dev` directory
+
+```shell
+docker <some command> <some flag> -v /dev:/dev/<name of usb device> <other arguments>
+```
+
+- see [this article] for more information, although you can google yourself.
 - set a cronjob to run `minicom -D /dev/ttyACM0` (minicom must be installed, along with user in dialout group)
   
 example crontab:
