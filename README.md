@@ -29,3 +29,20 @@ example crontab:
 @reboot minicom -D /dev/ttyACM0
 ```
 - wait for the light on the pico to turn on and stay on, as this means the 'troll' is running
+- in this case, the troll looks something like this:
+```shell
+pi@raspberrypi :-$ uname -a
+bash: uname -a: command not found
+
+You should leave now!! # right here you can customize this message in the python script
+1 # note that this output goes really fast. the control c keyboard interrupt doesn't work, and this keeps going forever
+2
+3
+4
+5
+6
+7
+8
+9
+10
+```
