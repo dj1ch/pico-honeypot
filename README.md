@@ -21,7 +21,7 @@ For safety, have this in a container of some sort.
 docker <some command> <some flag> -v /dev:/dev/<name of usb device> <other arguments>
 ```
 
-- see [this article] for more information, although you can google yourself.
+- see [this article](https://www.losant.com/blog/how-to-access-serial-devices-in-docker) for more information, although you can google yourself.
 - set a cronjob to run `minicom -D /dev/ttyACM0` (minicom must be installed, along with user in dialout group)
   
 example crontab:
