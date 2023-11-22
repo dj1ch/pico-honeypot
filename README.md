@@ -22,7 +22,7 @@ This pretends to be a debian 12 server. I would host this on some sort of port f
 sudo chmod +x script.sh
 ```
 
-- edit your .bashrc and add this line(.bashrc is usually in `/home/$USER/.bashrc`)
+- edit your .bashrc and add this line(.bashrc is usually in `/home/$USER/.bashrc`, although this is only for the user that is being logged into by the attacker. you can add it to the `/etc/.bashrc` if you want changes to be for the whole system)
 
 ```shell
 /path/to/script.sh  # replace with the actual path
