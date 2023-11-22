@@ -12,8 +12,20 @@ This pretends to be a debian 12 server. I would host this on some sort of port f
 
 ### Install guide
 - get a docker container with debian, ubuntu, etc. any works as long as it has bash, as this will run the serial shell on startup
-- download the [code](code.py)
-- copy it onto the pico
+- download the code for the [pico](code.py), and the code to put on the [container](script.sh)
+- copy the code.py onto the pico
+- put the script.sh onto the container
+- mark the script as an executable
+
+```shell
+sudo chmod +x script.sh
+```
+
+- edit your .bashrc and add this line(.bashrc is usually in `/home/$USER/.bashrc`)
+
+```shell
+/path/to/script.sh  # replace with the actual path
+```
 - plug the pico into your server/container
 - you may need to give the container permissions to access the `/dev` directory, or perhaps the name of the usb device. most of the time the raspberry pi pico is referred to as `ttyACM0` in the `/dev` directory
 
@@ -22,14 +34,8 @@ docker <some command> <some flag> -v /dev:/dev/<name of usb device> <other argum
 ```
 
 - see [this article](https://www.losant.com/blog/how-to-access-serial-devices-in-docker) for more information, although you can google yourself.
-- set a cronjob to run `minicom -D /dev/ttyACM0` (minicom must be installed, along with user in dialout group)
-  
-example crontab:
-```shell
-# this connects to the pico shell on each reboot
-@reboot minicom -D /dev/ttyACM0
-```
-- wait for the light on the pico to turn on and stay on, as this means the 'troll' is running
+- expose your server(docker or any other container service) to the internet, by any means necessary.
+- wait for the light on the pico to turn on and stay on, as this means the 'troll' is running, and that the attacker has logged in
 - in this case, the troll looks something like this:
 ```shell
 pi@raspberrypi :-$ uname -a
