@@ -11,7 +11,7 @@ This pretends to be a debian 12 server. I would host this on some sort of port f
 - an IDE if you want to test new changes
 
 ### Install guide
-For safety, have this in a container of some sort. 
+- get a docker container with debian, ubuntu, etc. any works as long as it has bash, as this will run the serial shell on startup
 - download the [code](code.py)
 - copy it onto the pico
 - plug the pico into your server/container
