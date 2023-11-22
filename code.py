@@ -48,4 +48,5 @@ if __name__ == "__main__":
         server_startup()
         count_numbers(1)
     except KeyboardInterrupt:
+        print("Sorry, you can't exit!")
         pass  # prevent program from exiting
