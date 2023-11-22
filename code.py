@@ -21,7 +21,7 @@ def server_startup():
     print('\nDebian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent permitted by applicable law.')
 
     current_time = time.monotonic()
-    login_time = f"\nLast login: {current_time}"
+    login_time = f"\nLast login: {current_time}" # this might turn out weird, but its close enough
     print(login_time)
     while True:
         command = input('pi@raspberrypi:~ $ ')
@@ -35,7 +35,7 @@ def count_numbers(starting_number):
     time.sleep(2)  # delay before the counting
     while True:
         try:
-            led.value = True
+            led.value = True # the led will turn on and stay on when the numbers are going
             print(current_number)
             current_number += 1
             time.sleep(0.0000000000000000000000001)  # keep in mind this will go really fast
@@ -44,7 +44,7 @@ def count_numbers(starting_number):
 
 if __name__ == "__main__":
     try:
-        loading_animation_slash()
+        loading_animation_slash() # you can remove this if you want to make it look realistic
         server_startup()
         count_numbers(1)
     except KeyboardInterrupt:
