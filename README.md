@@ -28,7 +28,13 @@ sudo chmod +x script.sh
 /path/to/script.sh  # replace with the actual path
 ```
 - plug the pico into your server/container
-- you may need to give the container permissions to access the `/dev` directory, or perhaps the name of the usb device. most of the time the raspberry pi pico is referred to as `ttyACM0` in the `/dev` directory
+- you may need to give the container permissions to access the `/dev` directory, or perhaps the name of the usb device. most of the time the raspberry pi pico is referred to as `ttyACM0` in the `/dev` directory. sometimes, it could be referred to as `ttyUSB0`. when in doubt, you can always check the devices in the `/dev` directory using the command:
+
+```shell
+ls /dev | grep tty
+```
+
+- you can give docker permissions to that device with a command like this: 
 
 ```shell
 docker <some command> <some flag> -v /dev:/dev/<name of usb device> <other arguments>
