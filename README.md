@@ -25,7 +25,11 @@ sudo chmod +x script.sh
 - edit your .bashrc and add this line(.bashrc is usually in `/home/$USER/.bashrc`, although this is only for the user that is being logged into by the attacker. you can add it to the `/etc/.bashrc` if you want changes to be for the whole system)
 
 ```shell
-/path/to/script.sh  # replace with the actual path
+/path/to/script.sh  # replace with the actual path to the script.sh
+```
+- make sure to apply these changes
+```shell
+source /home/$USER/.bashrc
 ```
 - plug the pico into your server/container
 - you may need to give the container permissions to access the `/dev` directory, or perhaps the name of the usb device. most of the time the raspberry pi pico is referred to as `ttyACM0` in the `/dev` directory. sometimes, it could be referred to as `ttyUSB0`. when in doubt, you can always check the devices in the `/dev` directory using the command:
