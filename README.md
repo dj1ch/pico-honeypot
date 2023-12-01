@@ -43,6 +43,11 @@ ls /dev | grep tty
 ```shell
 docker <some command> <some flag> -v /dev:/dev/<name of usb device> <other arguments>
 ```
+- or just give it access to the entire `/dev` directory
+
+```shell
+docker <some command> <some flag> -v /dev:/dev <other arguments>
+```
 
 - see [this article](https://www.losant.com/blog/how-to-access-serial-devices-in-docker) for more information, although you can google yourself.
 - expose your server(docker or any other container service) to the internet, by any means necessary.
