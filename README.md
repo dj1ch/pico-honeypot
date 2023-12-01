@@ -16,17 +16,19 @@ This pretends to be a debian 12 server. I would host this on some sort of port f
 - download the code for the [pico](code.py), and the code to put on the [container](script.sh), along with these two python scripts for the container. [here's the first one](shell.py), and [here's the second one](shell_usb.py)
 - copy the `code.py` onto the pico
 - put the `script.sh`, `shell.py` and `shell_usb.py` onto the container
-- on the container, install the `pyserial` library using `pip`
+- on the container, install the `pyserial` library using `pip`. be sure to install python and pip as well!
 
 ```shell
 sudo apt install python3 pip -y
 ```
 
-then run
+then run the command
 
 ```shell
 pip install pyserial
 ```
+
+by now we should have all of our depedancies and needed libraries now.
 
 - mark the script as an executable
 
@@ -65,8 +67,10 @@ docker <some command> <some flag> -v /dev:/dev <other arguments>
 
 - see [this article](https://www.losant.com/blog/how-to-access-serial-devices-in-docker) for more information, although you can google yourself.
 - expose your server(docker or any other container service) to the internet, by any means necessary.
+- if the light is blinking, that means the pico is starting up normally
 - wait for the light on the pico to turn on and stay on, as this means the 'troll' is running, and that the attacker has logged in
 - in this case, the troll looks something like this:
+
 ```shell
 pi@raspberrypi :-$ uname -a
 bash: uname -a: command not found
