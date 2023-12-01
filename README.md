@@ -2,7 +2,7 @@
 ## A raspberry pi pico honeypot, that pretends to be a linux server.
 
 ### Intro
-This pretends to be a debian 12 server. I would host this on some sort of port for your server, but as soon as attackers log in they will be put into a serial shell(hosted on your own server), which is on the raspberry pi pico. It will troll them by saying "command not found" as they attempt to do things on it. After a couple seconds, the pico will start counting, really fast. This might confuse the attacker. Along with that, they will be trapped in this shell, unless they deliberatly get out of the serial shell. However, this is in a container and everything can be deleted by the host system. If you want to, you can mess with the python to make it a server using the pico w, although I use the regular pico. 
+This pretends to be a debian 12 server. I would host this on some sort of port for your server, but as soon as attackers log in they will be put into a serial shell(hosted on your own server), which is on the raspberry pi pico. It will troll them by saying "command not found" as they attempt to do things on it. After a couple seconds, the pico will start counting, really fast. This might confuse the attacker. Along with that, they will be trapped in this shell, unless they deliberatly get out of the serial shell. However, this is in a container and everything can be deleted by the host system. If you want to, you can mess with the python to make it a server using the pico w, although I use the regular pico.
 
 ### What you need
 - a container with bash installed
@@ -13,9 +13,21 @@ This pretends to be a debian 12 server. I would host this on some sort of port f
 
 ### Install guide
 - get a docker container with debian, ubuntu, etc. any works as long as it has bash, as this will run the serial shell on startup
-- download the code for the [pico](code.py), and the code to put on the [container](script.sh)
-- copy the code.py onto the pico
-- put the script.sh onto the container
+- download the code for the [pico](code.py), and the code to put on the [container](script.sh), along with these two python scripts for the container. [here's the first one](shell.py), and [here's the second one](shell_usb.py)
+- copy the `code.py` onto the pico
+- put the `script.sh`, `shell.py` and `shell_usb.py` onto the container
+- on the container, install the `pyserial` library using `pip`
+
+```shell
+sudo apt install python3 pip -y
+```
+
+then run
+
+```shell
+pip install pyserial
+```
+
 - mark the script as an executable
 
 ```shell
@@ -28,9 +40,11 @@ sudo chmod +x script.sh
 /path/to/script.sh  # replace with the actual path to the script.sh
 ```
 - make sure to apply these changes
+
 ```shell
 source /home/$USER/.bashrc
 ```
+
 - plug the pico into your server/container
 - you may need to give the container permissions to access the `/dev` directory, or perhaps the name of the usb device. most of the time the raspberry pi pico is referred to as `ttyACM0` in the `/dev` directory. sometimes, it could be referred to as `ttyUSB0`. when in doubt, you can always check the devices in the `/dev` directory using the command:
 
@@ -38,7 +52,7 @@ source /home/$USER/.bashrc
 ls /dev | grep tty
 ```
 
-- you can give docker permissions to that device with a command like this: 
+- you can give docker permissions to that device with a command like this:
 
 ```shell
 docker <some command> <some flag> -v /dev:/dev/<name of usb device> <other arguments>

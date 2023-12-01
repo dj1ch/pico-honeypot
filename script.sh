@@ -1,12 +1,12 @@
 #!/bin/bash
 # startup script
-output=$(minicom -D /dev/ttyACM0 2>&1)
+output=$(python3 shell.py 2>&1)
 
-if [[ $? -ne 0 && $output == "minicom: cannot open /dev/ttyACM0: No such file or directory" ]]; then
+if [[ $? -ne 0 && "$output" == *"Traceback (most recent call last):"* ]]; then
   echo "Failed to open /dev/ttyACM0. Trying /dev/ttyUSB0..."
 
   # try ttyUSB0
-  output=$(minicom -D /dev/ttyUSB0 2>&1)
+  output=$(python3 shell_usb.py 2>&1)
 
   if [[ $? -ne 0 ]]; then
     echo "Failed to open /dev/ttyUSB0 and /dev/ttyACM0. Is the device properly attached?"
