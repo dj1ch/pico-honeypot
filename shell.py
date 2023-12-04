@@ -1,3 +1,5 @@
+# this script must be included on your machine for this to work
+# this is a serial shell, that will not allow anyone to exit
 import serial
 
 # connect to the pico at /dev/ttyACM0 with 9600 bauds

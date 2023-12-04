@@ -1,3 +1,4 @@
+# note that this is the same script as shell.py
 # this will be run if /dev/ttyACM0 does not exist
 import serial
 
