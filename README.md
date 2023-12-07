@@ -48,13 +48,14 @@ source /home/$USER/.bashrc
 ```
 
 - plug the pico into your server/container
-- you may need to give the container permissions to access the `/dev` directory, or perhaps the name of the usb device. most of the time the raspberry pi pico is referred to as `ttyACM0` in the `/dev` directory. sometimes, it could be referred to as `ttyUSB0`. when in doubt, you can always check the devices in the `/dev` directory using the command:
+- you may need to give the container permissions to access the `/dev` directory, or perhaps the name of the usb device. most of the time the raspberry pi pico is referred to as `ttyACM0` in the `/dev` directory. sometimes, it could be referred to as `ttyUSB0`. when in doubt, you can always check the devices in the `/dev` directory using the command(on the main machine, not the container):
 
 ```shell
 ls /dev | grep tty
 ```
 
 - you can give docker permissions to that device with a command like this:
+- make sure you read up on docker commands if you are to use docker. if you have problems i probably will not be able to help if it a simple problem that can be fixed with a google.
 
 ```shell
 docker <some command> <some flag> -v /dev:/dev/<name of usb device> <other arguments>
@@ -68,6 +69,7 @@ docker <some command> <some flag> -v /dev:/dev <other arguments>
 - see [this article](https://www.losant.com/blog/how-to-access-serial-devices-in-docker) for more information, although you can google yourself.
 - expose your server(docker or any other container service) to the internet, by any means necessary.
 - if the light is blinking, that means the pico is starting up normally
+- it will stop blinking when the loading is done. the led light will turn off until it catches something in the honeypot
 - wait for the light on the pico to turn on and stay on, as this means the 'troll' is running, and that the attacker has logged in
 - in this case, the troll looks something like this:
 
