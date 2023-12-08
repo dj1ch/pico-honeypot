@@ -5,6 +5,7 @@ import digitalio
 led = digitalio.DigitalInOut(board.LED)
 led.direction = digitalio.Direction.OUTPUT
 
+# this adds a loading animation, and blinks the LED
 def loading_animation_slash(iterations=10):
     symbols = ['/', '|', '\\']
     for _ in range(iterations):
@@ -14,7 +15,7 @@ def loading_animation_slash(iterations=10):
             led.value = False
             print('\rLoading ' + symbol, end='')
             time.sleep(0.1)
-
+# the fake shell
 def server_startup():
     print('\nLinux raspberrypi 6.1.0-rpi6-rpi-v7 #1 SMP Raspbian 1:6.1.58-1+rpt2 (2023-10-27) armv7l')
     print('\nThe programs included with the Debian GNU/Linux system are free software; the exact distribution terms for each program are described in the individual files in /usr/share/doc/*/copyright.')
@@ -29,6 +30,7 @@ def server_startup():
         time.sleep(5)  # adjust this time
         break
 
+# counting numbers troll
 def count_numbers(starting_number):
     current_number = starting_number
     print("\nYou should leave now!")  # you can set the message the attacker sees before this starts

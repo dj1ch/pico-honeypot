@@ -7,7 +7,7 @@ serial = serial.Serial("/dev/ttyUSB0", 9600)
 
 # constantly print info
 try:
-    while true:
+    while True:
         data = serial.readline().decode("utf-8").strip()
         print(data)
 
